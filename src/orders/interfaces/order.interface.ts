@@ -1,6 +1,6 @@
 import { Product } from "src/products/interfaces/product.interface"
 
-export interface CreateOrderDto {
+export interface Order {
   userId: string
   products: Product[]
   time: number

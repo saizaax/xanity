@@ -1,4 +1,14 @@
-import { Body, Controller, Delete, Get, HttpException, HttpStatus, Param, Patch, Post } from "@nestjs/common"
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  HttpException,
+  HttpStatus,
+  Param,
+  Patch,
+  Post,
+} from "@nestjs/common"
 import { CreateOrderDto } from "./dto/create-order.dto"
 import { OrdersService } from "./orders.service"
 
@@ -20,7 +30,7 @@ export class OrdersController {
   async findOne(@Param("id") id: string) {
     const result = await this.ordersService.findOne(id)
     if (!result) throw new HttpException("Not found", HttpStatus.NOT_FOUND)
-    
+
     return result
   }
 

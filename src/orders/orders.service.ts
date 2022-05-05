@@ -21,14 +21,23 @@ export class OrdersService {
 
   async create(body: CreateOrderDto): Promise<Order> {
     const createdOrder = new this.orderModel(body)
-    return createdOrder.save()
+    await createdOrder.save()
+    await createdOrder.populate("products")
+
+    return createdOrder
   }
 
   async update(id: string, body: CreateOrderDto): Promise<Order> {
-    return await this.orderModel.findByIdAndUpdate(id, body, { new: true })
+    return await this.orderModel
+      .findByIdAndUpdate(id, body, { new: true })
+      .populate("products")
+      .exec()
   }
 
   async delete(id: string): Promise<Order> {
-    return await this.orderModel.findByIdAndRemove(id)
+    return await this.orderModel
+      .findByIdAndRemove(id)
+      .populate("products")
+      .exec()
   }
 }
