@@ -2,13 +2,13 @@ import { Module } from "@nestjs/common"
 import { ConfigModule } from "@nestjs/config"
 import { MongooseModule } from "@nestjs/mongoose"
 import { ProductsModule } from "./products/products.module"
+import { OrdersModule } from './orders/orders.module';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
       envFilePath: ".env",
     }),
-    ProductsModule,
     MongooseModule.forRoot(
       `mongodb://` +
         `${process.env.MONGODB_USERNAME}:` +
@@ -18,6 +18,8 @@ import { ProductsModule } from "./products/products.module"
         `${process.env.MONGODB_DB}` +
         `?authSource=admin`
     ),
+    ProductsModule,
+    OrdersModule,
   ],
   controllers: [],
   providers: [],
