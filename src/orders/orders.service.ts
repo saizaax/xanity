@@ -1,6 +1,9 @@
-import { Injectable } from "@nestjs/common"
+import { HttpException, HttpStatus, Injectable } from "@nestjs/common"
 import { InjectModel } from "@nestjs/mongoose"
 import { Model } from "mongoose"
+import { Role } from "src/roles/role.enum"
+import { UserDto } from "src/users/dto/user.dto"
+import { hasRole } from "src/utils/hasRole"
 import { CreateOrderDto } from "./dto/create-order.dto"
 import { Order, OrderDocument } from "./schemas/order.schema"
 
@@ -11,12 +14,24 @@ export class OrdersService {
     private orderModel: Model<OrderDocument>
   ) {}
 
+  async validateRoles(user: UserDto, result: CreateOrderDto): Promise<void> {
+    if (!hasRole(user, Role.ADMIN) && user._id !== result.userId)
+      throw new HttpException("Not found", HttpStatus.NOT_FOUND)
+  }
+
   async findAll(): Promise<Order[]> {
     return await this.orderModel.find().populate("products").exec()
   }
 
   async findOne(id: string): Promise<Order> {
-    return await this.orderModel.findById(id).populate("products").exec()
+    const result = await this.orderModel
+      .findById(id)
+      .populate("products")
+      .exec()
+
+    if (!result) throw new HttpException("Not found", HttpStatus.NOT_FOUND)
+
+    return result
   }
 
   async create(body: CreateOrderDto): Promise<Order> {
@@ -28,16 +43,24 @@ export class OrdersService {
   }
 
   async update(id: string, body: CreateOrderDto): Promise<Order> {
-    return await this.orderModel
+    const result = await this.orderModel
       .findByIdAndUpdate(id, body, { new: true })
       .populate("products")
       .exec()
+
+    if (!result) throw new HttpException("Not found", HttpStatus.NOT_FOUND)
+
+    return result
   }
 
   async delete(id: string): Promise<Order> {
-    return await this.orderModel
+    const result = await this.orderModel
       .findByIdAndRemove(id)
       .populate("products")
       .exec()
+
+    if (!result) throw new HttpException("Not found", HttpStatus.NOT_FOUND)
+
+    return result
   }
 }

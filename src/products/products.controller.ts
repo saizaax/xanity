@@ -9,7 +9,11 @@ import {
   Patch,
   Post,
   Res,
+  UseGuards,
 } from "@nestjs/common"
+import { JwtAuthGuard } from "src/auth/guards/jwt.guard"
+import { Role } from "src/roles/role.enum"
+import { Roles } from "src/roles/roles.decorator"
 import { CreateProductDto } from "./dto/create-product.dto"
 import { ProductsService } from "./products.service"
 
@@ -22,6 +26,8 @@ export class ProductsController {
     return this.productsService.findAll()
   }
 
+  @UseGuards(JwtAuthGuard)
+  @Roles(Role.ADMIN)
   @Post()
   async create(@Body() body: CreateProductDto) {
     return this.productsService.create(body)
@@ -35,6 +41,8 @@ export class ProductsController {
     return results
   }
 
+  @UseGuards(JwtAuthGuard)
+  @Roles(Role.ADMIN)
   @Patch(":id")
   async update(@Param("id") id: string, @Body() body: CreateProductDto) {
     const results = await this.productsService.update(id, body)
@@ -43,6 +51,8 @@ export class ProductsController {
     return results
   }
 
+  @UseGuards(JwtAuthGuard)
+  @Roles(Role.ADMIN)
   @Delete(":id")
   async delete(@Param("id") id: string) {
     const results = await this.productsService.delete(id)

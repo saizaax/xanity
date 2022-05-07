@@ -37,3 +37,7 @@ lerna-debug.log*
 # Other
 notes.md
 .env
+
+# Uploads
+static/*
+!static/.gitkeep

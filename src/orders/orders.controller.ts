@@ -8,7 +8,15 @@ import {
   Param,
   Patch,
   Post,
+  UseGuards,
 } from "@nestjs/common"
+import { JwtAuthGuard } from "src/auth/guards/jwt.guard"
+import { User } from "src/users/user.decorator"
+import { Role } from "src/roles/role.enum"
+import { Roles } from "src/roles/roles.decorator"
+import { CreateUserDto } from "src/users/dto/create-user.dto"
+import { UserDto } from "src/users/dto/user.dto"
+import { hasRole } from "src/utils/hasRole"
 import { CreateOrderDto } from "./dto/create-order.dto"
 import { OrdersService } from "./orders.service"
 
@@ -16,37 +24,40 @@ import { OrdersService } from "./orders.service"
 export class OrdersController {
   constructor(private ordersService: OrdersService) {}
 
+  @UseGuards(JwtAuthGuard)
+  @Roles(Role.ADMIN)
   @Get()
   async findAll() {
     return await this.ordersService.findAll()
   }
 
+  @UseGuards(JwtAuthGuard)
   @Post()
-  async create(@Body() body: CreateOrderDto) {
+  async create(@Body() body: CreateOrderDto, @User() user: UserDto) {
+    await this.ordersService.validateRoles(user, body)
     return await this.ordersService.create(body)
   }
 
+  @UseGuards(JwtAuthGuard)
   @Get(":id")
-  async findOne(@Param("id") id: string) {
+  async findOne(@Param("id") id: string, @User() user: UserDto) {
     const result = await this.ordersService.findOne(id)
-    if (!result) throw new HttpException("Not found", HttpStatus.NOT_FOUND)
-
+    await this.ordersService.validateRoles(user, result)
+  
     return result
   }
 
+  @UseGuards(JwtAuthGuard)
+  @Roles(Role.ADMIN)
   @Patch(":id")
   async update(@Param("id") id: string, @Body() body: CreateOrderDto) {
-    const result = await this.ordersService.update(id, body)
-    if (!result) throw new HttpException("Not found", HttpStatus.NOT_FOUND)
-
-    return result
+    return await this.ordersService.update(id, body)
   }
 
+  @UseGuards(JwtAuthGuard)
+  @Roles(Role.ADMIN)
   @Delete(":id")
   async delete(@Param("id") id: string) {
-    const result = await this.ordersService.delete(id)
-    if (!result) throw new HttpException("Not found", HttpStatus.NOT_FOUND)
-
-    return result
+    return await this.ordersService.delete(id)
   }
 }

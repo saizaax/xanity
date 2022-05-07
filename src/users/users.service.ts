@@ -3,6 +3,9 @@ import { InjectModel } from "@nestjs/mongoose"
 import { Model } from "mongoose"
 import { CreateUserDto } from "./dto/create-user.dto"
 import { User, UserDocument } from "./schemas/user.schema"
+import { genSalt, hash } from "bcryptjs"
+import { ROLE_USER } from "src/roles/role.constants"
+import { AuthUserDto } from "./dto/auth-user.dto"
 
 @Injectable()
 export class UsersService {
@@ -17,18 +20,16 @@ export class UsersService {
       .exec()
   }
 
-  async create(body: CreateUserDto): Promise<User> {
-    const createdUser = new this.userModel(body)
-    await createdUser.save()
+  async create(body: AuthUserDto): Promise<User> {
+    const salt = await genSalt(10)
 
-    await createdUser.populate("favorite")
-    await createdUser.populate("cart")
-    await createdUser.populate({
-      path: "orders",
-      populate: { path: "products" },
+    const createdUser = new this.userModel({
+      username: body.username,
+      password: await hash(body.password, salt),
+      roles: [ROLE_USER],
     })
 
-    return createdUser
+    return await createdUser.save()
   }
 
   async findOne(id: string): Promise<User> {
@@ -37,6 +38,16 @@ export class UsersService {
       .populate("favorite")
       .populate("cart")
       .populate({ path: "orders", populate: { path: "products" } })
+      .exec()
+  }
+
+  async findByUsername(username: string): Promise<User> {
+    return await this.userModel
+      .findOne({ username: username })
+      .populate("favorite")
+      .populate("cart")
+      .populate({ path: "orders", populate: { path: "products" } })
+      .lean()
       .exec()
   }
 
