@@ -7,8 +7,6 @@ import { fileResponseDto } from "./dto/file-response.dto"
 
 @Injectable()
 export class FilesService {
-  constructor() {}
-
   async upload(data: FileRequestDto): Promise<fileResponseDto[]> {
     const STATIC_PATH = "static"
 
