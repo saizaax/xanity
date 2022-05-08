@@ -8,7 +8,6 @@ import {
   Param,
   Patch,
   Post,
-  Res,
   UseGuards,
 } from "@nestjs/common"
 import { ApiHeader, ApiOperation, ApiResponse, ApiTags } from "@nestjs/swagger"

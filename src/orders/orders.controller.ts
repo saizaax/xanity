@@ -3,8 +3,6 @@ import {
   Controller,
   Delete,
   Get,
-  HttpException,
-  HttpStatus,
   Param,
   Patch,
   Post,
@@ -14,9 +12,7 @@ import { JwtAuthGuard } from "src/auth/guards/jwt.guard"
 import { User } from "src/users/user.decorator"
 import { Role } from "src/roles/role.enum"
 import { Roles } from "src/roles/roles.decorator"
-import { CreateUserDto } from "src/users/dto/create-user.dto"
 import { UserDto } from "src/users/dto/user.dto"
-import { hasRole } from "src/utils/hasRole"
 import { CreateOrderDto } from "./dto/create-order.dto"
 import { OrdersService } from "./orders.service"
 import { ApiHeader, ApiOperation, ApiResponse, ApiTags } from "@nestjs/swagger"

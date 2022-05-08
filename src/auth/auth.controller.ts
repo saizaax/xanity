@@ -5,7 +5,6 @@ import {
   HttpStatus,
   Post,
 } from "@nestjs/common"
-import { CreateUserDto } from "src/users/dto/create-user.dto"
 import { AuthUserDto } from "src/users/dto/auth-user.dto"
 import { UsersService } from "src/users/users.service"
 import { AuthService } from "./auth.service"
