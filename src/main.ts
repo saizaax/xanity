@@ -6,6 +6,9 @@ import { AppModule } from "./app.module"
 async function bootstrap() {
   const app = await NestFactory.create(AppModule)
 
+  app.useGlobalPipes(new ValidationPipe())
+  app.setGlobalPrefix("api")
+
   const swagger = new DocumentBuilder()
     .setTitle("XANITY API")
     .setDescription("REST API Documentation")
@@ -15,9 +18,6 @@ async function bootstrap() {
 
   const document = SwaggerModule.createDocument(app, swagger)
   SwaggerModule.setup("api/docs", app, document)
-
-  app.useGlobalPipes(new ValidationPipe())
-  app.setGlobalPrefix("api")
 
   const port = process.env.PORT || 5050
   await app.listen(port)
