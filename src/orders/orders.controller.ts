@@ -43,7 +43,7 @@ export class OrdersController {
   @Post()
   async create(@Body() body: CreateOrderDto, @User() user: UserDto) {
     await this.ordersService.validateRoles(user, body)
-    return await this.ordersService.create(body)
+    return await this.ordersService.create(body, user)
   }
 
   @ApiOperation({ summary: "Get order by ID" })

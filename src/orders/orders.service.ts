@@ -2,7 +2,10 @@ import { HttpException, HttpStatus, Injectable } from "@nestjs/common"
 import { InjectModel } from "@nestjs/mongoose"
 import { Model } from "mongoose"
 import { Role } from "src/roles/role.enum"
+import { CreateUserDto } from "src/users/dto/create-user.dto"
 import { UserDto } from "src/users/dto/user.dto"
+import { User } from "src/users/schemas/user.schema"
+import { UsersService } from "src/users/users.service"
 import { hasRole } from "src/utils/hasRole"
 import { CreateOrderDto } from "./dto/create-order.dto"
 import { Order, OrderDocument } from "./schemas/order.schema"
@@ -11,7 +14,8 @@ import { Order, OrderDocument } from "./schemas/order.schema"
 export class OrdersService {
   constructor(
     @InjectModel(Order.name)
-    private orderModel: Model<OrderDocument>
+    private orderModel: Model<OrderDocument>,
+    private usersService: UsersService
   ) {}
 
   async validateRoles(user: UserDto, result: CreateOrderDto): Promise<void> {
@@ -34,10 +38,11 @@ export class OrdersService {
     return result
   }
 
-  async create(body: CreateOrderDto): Promise<Order> {
-    const createdOrder = new this.orderModel(body)
+  async create(body: CreateOrderDto, user: UserDto): Promise<Order> {
+    const createdOrder = new this.orderModel({ ...body, userId: user._id })
     await createdOrder.save()
     await createdOrder.populate("products")
+    await this.usersService.addOrder(user._id, createdOrder._id)
 
     return createdOrder
   }

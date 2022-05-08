@@ -13,6 +13,8 @@ import { FilesModule } from "./files/files.module"
 import { MulterModule } from "@nestjs/platform-express"
 import { ServeStaticModule } from "@nestjs/serve-static"
 import { join } from "path"
+import { FavoriteModule } from "./favorite/favorite.module"
+import { CartModule } from "./cart/cart.module"
 
 @Module({
   imports: [
@@ -42,6 +44,8 @@ import { join } from "path"
     AuthModule,
     RolesModule,
     FilesModule,
+    FavoriteModule,
+    CartModule,
   ],
   controllers: [],
   providers: [
