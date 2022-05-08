@@ -11,21 +11,28 @@ import {
   Res,
   UseGuards,
 } from "@nestjs/common"
+import { ApiHeader, ApiOperation, ApiResponse, ApiTags } from "@nestjs/swagger"
 import { JwtAuthGuard } from "src/auth/guards/jwt.guard"
 import { Role } from "src/roles/role.enum"
 import { Roles } from "src/roles/roles.decorator"
 import { CreateProductDto } from "./dto/create-product.dto"
 import { ProductsService } from "./products.service"
 
+@ApiTags("Products")
 @Controller("products")
 export class ProductsController {
   constructor(private productsService: ProductsService) {}
 
+  @ApiOperation({ summary: "Get all products" })
+  @ApiResponse({ status: 200, type: [CreateProductDto] })
   @Get()
   findAll() {
     return this.productsService.findAll()
   }
 
+  @ApiOperation({ summary: "Add new product" })
+  @ApiResponse({ status: 201, type: CreateProductDto })
+  @ApiHeader({ name: "Authorization", required: true })
   @UseGuards(JwtAuthGuard)
   @Roles(Role.ADMIN)
   @Post()
@@ -33,6 +40,8 @@ export class ProductsController {
     return this.productsService.create(body)
   }
 
+  @ApiOperation({ summary: "Get product by ID" })
+  @ApiResponse({ status: 200, type: CreateProductDto })
   @Get(":id")
   async findOne(@Param("id") id: string) {
     const results = await this.productsService.findOne(id)
@@ -41,6 +50,9 @@ export class ProductsController {
     return results
   }
 
+  @ApiOperation({ summary: "Update product by ID" })
+  @ApiResponse({ status: 200, type: CreateProductDto })
+  @ApiHeader({ name: "Authorization", required: true })
   @UseGuards(JwtAuthGuard)
   @Roles(Role.ADMIN)
   @Patch(":id")
@@ -51,6 +63,9 @@ export class ProductsController {
     return results
   }
 
+  @ApiOperation({ summary: "Delete product by ID" })
+  @ApiResponse({ status: 200, type: CreateProductDto })
+  @ApiHeader({ name: "Authorization", required: true })
   @UseGuards(JwtAuthGuard)
   @Roles(Role.ADMIN)
   @Delete(":id")

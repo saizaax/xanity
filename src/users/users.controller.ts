@@ -11,16 +11,20 @@ import {
   UseGuards,
 } from "@nestjs/common"
 import { JwtAuthGuard } from "src/auth/guards/jwt.guard"
-import { User } from "src/users/user.decorator"
 import { Role } from "src/roles/role.enum"
 import { Roles } from "src/roles/roles.decorator"
 import { CreateUserDto } from "./dto/create-user.dto"
 import { UsersService } from "./users.service"
+import { ApiHeader, ApiOperation, ApiResponse, ApiTags } from "@nestjs/swagger"
 
+@ApiTags("Users")
 @Controller("users")
 export class UsersController {
   constructor(private usersService: UsersService) {}
 
+  @ApiOperation({ summary: "Get all users" })
+  @ApiResponse({ status: 200, type: [CreateUserDto] })
+  @ApiHeader({ name: "Authorization", required: true })
   @UseGuards(JwtAuthGuard)
   @Roles(Role.ADMIN)
   @Get()
@@ -28,6 +32,9 @@ export class UsersController {
     return this.usersService.findAll()
   }
 
+  @ApiOperation({ summary: "Add new user" })
+  @ApiResponse({ status: 201, type: CreateUserDto })
+  @ApiHeader({ name: "Authorization", required: true })
   @UseGuards(JwtAuthGuard)
   @Roles(Role.ADMIN)
   @Post()
@@ -35,6 +42,9 @@ export class UsersController {
     return this.usersService.create(body)
   }
 
+  @ApiOperation({ summary: "Get user by ID" })
+  @ApiResponse({ status: 200, type: CreateUserDto })
+  @ApiHeader({ name: "Authorization", required: true })
   @UseGuards(JwtAuthGuard)
   @Roles(Role.ADMIN)
   @Get(":id")
@@ -45,6 +55,9 @@ export class UsersController {
     return result
   }
 
+  @ApiOperation({ summary: "Update user by ID" })
+  @ApiResponse({ status: 200, type: CreateUserDto })
+  @ApiHeader({ name: "Authorization", required: true })
   @UseGuards(JwtAuthGuard)
   @Roles(Role.ADMIN)
   @Patch(":id")
@@ -55,6 +68,9 @@ export class UsersController {
     return result
   }
 
+  @ApiOperation({ summary: "Delete user by ID" })
+  @ApiResponse({ status: 200, type: CreateUserDto })
+  @ApiHeader({ name: "Authorization", required: true })
   @UseGuards(JwtAuthGuard)
   @Roles(Role.ADMIN)
   @Delete(":id")

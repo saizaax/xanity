@@ -14,11 +14,14 @@ export class AuthService {
     const user = await this.usersService.findByUsername(username)
 
     if (!user) {
-      throw new HttpException("No user found with this username", HttpStatus.BAD_REQUEST)
+      throw new HttpException(
+        "No user found with this username",
+        HttpStatus.BAD_REQUEST
+      )
     }
 
     const isPasswordMatching = await compare(password, user.password)
-    
+
     if (!isPasswordMatching) {
       throw new HttpException("Invalid credentials", HttpStatus.UNAUTHORIZED)
     }
@@ -27,7 +30,11 @@ export class AuthService {
   }
 
   async login(user: any) {
-    const payload = { _id: user._id, username: user.username, roles: user.roles }
+    const payload = {
+      _id: user._id,
+      username: user.username,
+      roles: user.roles,
+    }
 
     return {
       token: this.jwtService.sign(payload),

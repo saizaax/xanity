@@ -34,7 +34,7 @@ import { join } from "path"
     }),
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, "..", "static"),
-      serveRoot: "/static",
+      serveRoot: "/api/static",
     }),
     ProductsModule,
     OrdersModule,

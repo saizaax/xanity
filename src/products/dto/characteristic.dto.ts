@@ -1,9 +1,9 @@
 import { ApiProperty } from "@nestjs/swagger"
 
-export class fileResponseDto {
+export class CharacteristicDto {
   @ApiProperty()
-  name: string
+  key: string
 
   @ApiProperty()
-  path: string
+  value: string
 }
