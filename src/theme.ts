@@ -41,5 +41,16 @@ export const { styled, css } = createStitches({
       error: "rgba(255, 75, 64, 1)",
       success: "rgba(0, 201, 104, 1)"
     }
+  },
+  media: {
+    bp1440: "(max-width: 1440px)",
+    bp970: "(max-width: 970px)",
+    bp640: "(max-width: 640px)",
+  }
+})
+
+export const Wrapper = styled("div", {
+  "@bp1440": {
+    zoom: "90%"
   }
 })

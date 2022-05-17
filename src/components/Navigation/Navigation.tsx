@@ -1,4 +1,4 @@
-import React from "react"
+import React, { FC } from "react"
 import { NavigationContainer, styles } from "./Navigation.styles"
 import { Search } from "../Search/Search"
 import { NavigationItem } from "./NavigationItem/NavigationItem"
@@ -14,10 +14,12 @@ type Props = {
   isAdmin: boolean
 }
 
-const Navigation = (props: Props) => {
+const Navigation: FC<Props> = ({ isAdmin }) => {
   return (
     <div className={styles()}>
-      <img src={logo} alt="xanity" />
+      <a href="/">
+        <img src={logo} alt="xanity" />
+      </a>
       <Search />
       <NavigationContainer>
         <NavigationItem

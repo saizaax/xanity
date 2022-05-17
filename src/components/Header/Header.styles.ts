@@ -7,25 +7,13 @@ export const styles = css({
   justifyContent: "space-between",
   padding: "0 160px",
   backgroundColor: "$primary100",
+
+  "@bp970": {
+    padding: "0 20px",
+  }
 })
 
-export const Geo = styled("div", {
-  display: "flex",
-  alignItems: "center",
-  columnGap: "5px",
-  color: "$white",
-
-  "& > p": {
-    fontSize: "14px",
-    fontWeight: "bold",
-  },
-})
-
-export const Contacts = styled("div", {
-  display: "flex",
-  alignItems: "center",
-  columnGap: "30px",
-
+export const Mail = styled("div", {
   "& > a": {
     color: "$white",
     fontSize: "14px",

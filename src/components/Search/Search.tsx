@@ -1,5 +1,7 @@
 import React, { FC, useState } from "react"
-import { styles } from "./Search.styles"
+import { InputContainer, styles } from "./Search.styles"
+
+import searchIcon from "../../assets/icons/search.svg"
 
 const Search: FC = () => {
   const [, setValue] = useState("")
@@ -9,7 +11,10 @@ const Search: FC = () => {
   }
 
   return (
-    <input className={styles()} placeholder="Поиск товаров" type="text" onChange={handleChange} />
+    <InputContainer>
+      <input className={styles()} placeholder="Поиск" type="text" onChange={handleChange} />
+      <img src={searchIcon} alt="search" />
+    </InputContainer>
   )
 }
 
