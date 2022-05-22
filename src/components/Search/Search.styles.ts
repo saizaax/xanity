@@ -8,7 +8,7 @@ export const styles = css({
   borderRadius: "12px",
   color: "$dark100",
   fontSize: "18px",
-  fontWeight: "medium",
+  fontWeight: 500,
   outline: "none",
   display: "flex",
   alignItems: "center",

@@ -8,6 +8,7 @@ export const styles = css({
   borderRadius: "15px",
   borderColor: "$dark15",
   overflow: "hidden",
+  height: "fit-content",
 
   "@bp640": {
     width: "100%",

@@ -17,7 +17,7 @@ export const Mail = styled("div", {
   "& > a": {
     color: "$white",
     fontSize: "14px",
-    fontWeight: "semibold",
+    fontWeight: 600,
 
     "&:hover": {
       opacity: "0.75",

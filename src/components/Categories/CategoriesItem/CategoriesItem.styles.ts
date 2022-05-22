@@ -6,6 +6,7 @@ export const styles = css({
   alignItems: "center",
   columnGap: "10px",
   color: "$dark100",
+  fontWeight: 500,
 
   "&:hover": {
     backgroundColor: "$dark025",

@@ -2,7 +2,7 @@ import { css } from "../../../theme"
 
 export const styles = css({
   fontSize: "16px",
-  fontWeight: "medium",
+  fontWeight: 500,
   color: "$dark80",
   display: "flex",
   columnGap: "10px",
