@@ -9,6 +9,14 @@ export const styles = css({
   paddingLeft: "30px",
   height: "170px",
   justifyContent: "space-between",
+  cursor: "pointer",
+  transition: "0.1s",
+
+  "&:hover": {
+    transition: "0.1s",
+    transform: "translateY(-5px)",
+    boxShadow: "20px 20px 40px rgba(0, 0, 0, 0.1)",
+  }
 })
 
 export const InfoContainer = styled("div", {

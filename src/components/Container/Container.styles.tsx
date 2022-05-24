@@ -9,5 +9,5 @@ export const styles = css({
 
   "@bp970": {
     padding: "0 20px",
-  }
+  },
 })

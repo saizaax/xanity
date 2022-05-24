@@ -1,14 +1,18 @@
-import React, { FC, MouseEventHandler, ReactNode } from 'react'
-import { styles } from './Button.styles'
+import React, { FC, MouseEventHandler, ReactNode } from "react"
+import { styles } from "./Button.styles"
 
 type Props = {
-  onClick?: MouseEventHandler<HTMLButtonElement>,
-  children: ReactNode,
+  onClick?: MouseEventHandler<HTMLButtonElement>
+  children: ReactNode
+  color?: "secondary"
+  size?: "small"
 }
 
-const Button: FC<Props> = ({ children, onClick}) => {
+const Button: FC<Props> = ({ children, onClick, color, size }) => {
   return (
-    <button className={styles()} onClick={onClick}>{children}</button>
+    <button className={styles({ color: color, size: size })} onClick={onClick}>
+      {children}
+    </button>
   )
 }
 

@@ -5,6 +5,7 @@ import { Categories } from "../../components/Categories/Categories"
 import {
   CategoryContainer,
   MainContainer,
+  ProductCardContainer,
   PromoContainer,
   styles,
 } from "./HomePage.styles"
@@ -21,6 +22,7 @@ import tabletsPreview from "../../assets/categories/tablets.png"
 import computersPreview from "../../assets/categories/computers.png"
 import tvsPreview from "../../assets/categories/tvs.png"
 import audiosPreview from "../../assets/categories/audios.png"
+import { ProductCard } from "../../components/ProductCard/ProductCard"
 
 const HomePage: FC = () => {
   return (
@@ -83,6 +85,56 @@ const HomePage: FC = () => {
                 imageUrl={audiosPreview}
               />
             </CategoryContainer>
+            <ProductCardContainer>
+              <ProductCard
+                title="Apple Watch Series 7 — 42mm"
+                description="Корпус из алюминия цвета «сияющая звезда» и Спортивный ремешок"
+                price={37900}
+                id={1}
+                tag="Умные часы"
+                imageUrl="https://avatars.mds.yandex.net/get-mpic/18058/img_id947009900.jpeg/orig"
+              />
+              <ProductCard
+                title="Apple Watch Series 7 — 42mm"
+                description="Корпус из алюминия цвета «сияющая звезда» и Спортивный ремешок"
+                price={37900}
+                id={1}
+                tag="Умные часы"
+                imageUrl="https://avatars.mds.yandex.net/get-mpic/18058/img_id947009900.jpeg/orig"
+              />
+              <ProductCard
+                title="Apple Watch Series 7 — 42mm"
+                description="Корпус из алюминия цвета «сияющая звезда» и Спортивный ремешок"
+                price={37900}
+                id={1}
+                tag="Умные часы"
+                imageUrl="https://avatars.mds.yandex.net/get-mpic/18058/img_id947009900.jpeg/orig"
+              />
+              <ProductCard
+                title="Apple Watch Series 7 — 42mm"
+                description="Корпус из алюминия цвета «сияющая звезда» и Спортивный ремешок"
+                price={37900}
+                id={1}
+                tag="Умные часы"
+                imageUrl="https://avatars.mds.yandex.net/get-mpic/18058/img_id947009900.jpeg/orig"
+              />
+              <ProductCard
+                title="Apple Watch Series 7 — 42mm"
+                description="Корпус из алюминия цвета «сияющая звезда» и Спортивный ремешок"
+                price={37900}
+                id={1}
+                tag="Умные часы"
+                imageUrl="https://avatars.mds.yandex.net/get-mpic/18058/img_id947009900.jpeg/orig"
+              />
+              <ProductCard
+                title="Apple Watch Series 7 — 42mm"
+                description="Корпус из алюминия цвета «сияющая звезда» и Спортивный ремешок"
+                price={37900}
+                id={1}
+                tag="Умные часы"
+                imageUrl="https://avatars.mds.yandex.net/get-mpic/18058/img_id947009900.jpeg/orig"
+              />
+            </ProductCardContainer>
           </PromoContainer>
         </MainContainer>
       </Container>

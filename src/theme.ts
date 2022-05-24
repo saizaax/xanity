@@ -37,6 +37,7 @@ export const { styled, css } = createStitches({
       primary100: "rgba(109, 75, 255, 1)",
       primary80: "rgba(109, 75, 255, 0.80)",
       primary15: "rgba(109, 75, 255, 0.15)",
+      primary10: "rgba(109, 75, 255, 0.10)",
       white: "rgba(255, 255, 255, 1)",
       error: "rgba(255, 75, 64, 1)",
       success: "rgba(0, 201, 104, 1)"

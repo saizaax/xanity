@@ -40,3 +40,21 @@ export const CategoryContainer = styled("div", {
     gridTemplateColumns: "1fr",
   },
 })
+
+export const ProductCardContainer = styled("div", {
+  display: "grid",
+  gridTemplateColumns: "repeat(4, 1fr)",
+  gap: "10px 10px",
+
+  "@media screen and (max-width: 1720px)": {
+    gridTemplateColumns: "repeat(3, 1fr);",
+  },
+
+  "@media screen and (max-width: 1320px)": {
+    gridTemplateColumns: "repeat(2, 1fr);",
+  },
+
+  "@media screen and (max-width: 1115px)": {
+    gridTemplateColumns: "1fr",
+  },
+})

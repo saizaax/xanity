@@ -12,5 +12,26 @@ export const styles = css({
 
   "&:hover": {
     background: "$primary80",
+  },
+
+  variants: {
+    color: {
+      secondary: {
+        background: "transparent",
+        border: "solid 1px",
+        borderColor: "$primary15",
+        color: "$primary100",
+
+        "&:hover": {
+          background: "$primary10",
+          borderColor: "transparent",
+        },
+      }
+    },
+    size: {
+      small: {
+        padding: "14px 18px",
+      }
+    }
   }
 })
