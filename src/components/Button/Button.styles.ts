@@ -27,6 +27,17 @@ export const styles = css({
           background: "$primary10",
           borderColor: "transparent",
         },
+      },
+      transparent: {
+        background: "transparent",
+        border: "none",
+        color: "$dark50",
+        padding: 0,
+
+        "&:hover": {
+          color: "$dark75",
+          background: "transparent",
+        }
       }
     },
     size: {

@@ -55,6 +55,7 @@ export const { styled, css } = createStitches({
     bp1170: "(max-width: 1170px)",
     bp1366: "(max-width: 1366px)",
     bp970: "(max-width: 970px)",
+    bp700: "(max-width: 700px)",
     bp640: "(max-width: 640px)",
   }
 })
