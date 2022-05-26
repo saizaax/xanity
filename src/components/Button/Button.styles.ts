@@ -9,6 +9,7 @@ export const styles = css({
   fontSize: "16px",
   color: "$white",
   cursor: "pointer",
+  width: "fit-content",
 
   "&:hover": {
     background: "$primary80",

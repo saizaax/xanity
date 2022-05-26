@@ -7,7 +7,11 @@ export const globalStyles = globalCss({
   },
   body: {
     fontFamily: "Inter, sans-serif",
-    background: "#fff"
+    background: "#fff",
+    minHeight: "100vh",
+  },
+  "#root": {
+    minHeight: "100vh",
   },
   "input, button": {
     outline: "none",
@@ -44,7 +48,11 @@ export const { styled, css } = createStitches({
     }
   },
   media: {
+    bp1920: "(max-width: 1920px)",
+    bp1900: "(max-width: 1900px)",
+    bp1700: "(max-width: 1700px)",
     bp1440: "(max-width: 1440px)",
+    bp1170: "(max-width: 1170px)",
     bp1366: "(max-width: 1366px)",
     bp970: "(max-width: 970px)",
     bp640: "(max-width: 640px)",
@@ -52,7 +60,12 @@ export const { styled, css } = createStitches({
 })
 
 export const Wrapper = styled("div", {
-  "@bp1440": {
-    zoom: "90%"
-  }
+  minHeight: "100vh",
+  height: "100%",
+  display: "flex",
+  flexDirection: "column",
+
+  // "@bp1440": {
+  //   zoom: "90%"
+  // }
 })

@@ -6,6 +6,7 @@ export const styles = css({
   rowGap: "45px",
   marginBottom: "45px",
   flexWrap: "wrap",
+  minHeight: "100%",
 })
 
 export const MainContainer = styled("div", {

@@ -1,5 +1,6 @@
 import React from "react"
 import { HomePage } from "./pages/Home/HomePage"
+import { ProductPage } from "./pages/Product/ProductPage"
 import { globalStyles, Wrapper } from "./theme"
 
 const App = () => {
@@ -7,7 +8,8 @@ const App = () => {
 
   return (
     <Wrapper>
-      <HomePage />
+      {/* <HomePage /> */}
+      <ProductPage />
     </Wrapper>
   )
 }
