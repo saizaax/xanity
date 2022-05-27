@@ -38,6 +38,17 @@ export const styles = css({
           color: "$dark75",
           background: "transparent",
         }
+      },
+      "danger": {
+        color: "$danger100",
+        background: "transparent",
+        border: "solid 1px",
+        borderColor: "$dark15",
+
+        "&:hover": {
+          borderColor: "transparent",
+          background: "$danger15",
+        }
       }
     },
     size: {

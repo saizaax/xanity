@@ -5,15 +5,13 @@ import { Footer } from "../../components/Footer/Footer"
 import { Header } from "../../components/Header/Header"
 import { Navigation } from "../../components/Navigation/Navigation"
 import { ProductCard } from "../../components/ProductCard/ProductCard"
+import { SectionTitle } from "../../components/SectionTitle/SectionTitle"
 import { Separator } from "../../components/Separator/Separator"
 import {
   MainContainer,
   Products,
   ProductsContainer,
-  Results,
   styles,
-  Title,
-  TitleContainer,
 } from "./SearchPage.styles"
 
 const SearchPage: FC = () => {
@@ -25,10 +23,7 @@ const SearchPage: FC = () => {
           <Navigation isAdmin={false} />
           <Separator variant="secondary" />
           <MainContainer>
-            <TitleContainer>
-              <Title>Поиск товаров</Title>
-              <Results>Найдено 10 результатов</Results>
-            </TitleContainer>
+            <SectionTitle title="Поиск товаров" results={"Найдено результатов — 10"} />
             <ProductsContainer>
               <Filters />
               <Products>

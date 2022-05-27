@@ -20,6 +20,7 @@ export const styles = css({
     fontWeight: 700,
     color: "$primary100",
     textTransform: "uppercase",
+    letterSpacing: "0.3em",
   }
 })
 

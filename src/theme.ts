@@ -43,7 +43,8 @@ export const { styled, css } = createStitches({
       primary15: "rgba(109, 75, 255, 0.15)",
       primary10: "rgba(109, 75, 255, 0.10)",
       white: "rgba(255, 255, 255, 1)",
-      error: "rgba(255, 75, 64, 1)",
+      danger100: "rgba(255, 75, 64, 1)",
+      danger15: "rgba(255, 75, 64, 0.15)",
       success: "rgba(0, 201, 104, 1)"
     }
   },
@@ -52,8 +53,8 @@ export const { styled, css } = createStitches({
     bp1900: "(max-width: 1900px)",
     bp1700: "(max-width: 1700px)",
     bp1440: "(max-width: 1440px)",
-    bp1170: "(max-width: 1170px)",
     bp1366: "(max-width: 1366px)",
+    bp1170: "(max-width: 1170px)",
     bp970: "(max-width: 970px)",
     bp700: "(max-width: 700px)",
     bp640: "(max-width: 640px)",

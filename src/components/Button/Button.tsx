@@ -4,7 +4,7 @@ import { styles } from "./Button.styles"
 type Props = {
   onClick?: MouseEventHandler<HTMLButtonElement>
   children: ReactNode
-  color?: "secondary" | "transparent"
+  color?: "secondary" | "transparent" | "danger"
   size?: "small"
 }
 

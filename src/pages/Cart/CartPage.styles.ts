@@ -14,18 +14,23 @@ export const MainContainer = styled("div", {
   rowGap: "45px",
 })
 
-export const ProductsContainer = styled("div", {
+export const CartContainer = styled("div", {
   display: "flex",
   columnGap: "25px",
   rowGap: "25px",
 
-  "@bp700": {
+  "@bp1366": {
     flexDirection: "column",
   }
 })
 
 export const Products = styled("div", {
-  display: "grid",
-  gap: "25px",
-  gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+  display: "flex",
+  flexDirection: "column",
+  padding: "40px 50px",
+  boxSizing: "border-box",
+  rowGap: "10px",
+  border: "solid 1px $dark15",
+  borderRadius: "15px",
+  width: "100%",
 })
