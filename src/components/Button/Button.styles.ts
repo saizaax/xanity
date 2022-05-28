@@ -39,7 +39,7 @@ export const styles = css({
           background: "transparent",
         }
       },
-      "danger": {
+      danger: {
         color: "$danger100",
         background: "transparent",
         border: "solid 1px",
@@ -48,6 +48,17 @@ export const styles = css({
         "&:hover": {
           borderColor: "transparent",
           background: "$danger15",
+        }
+      },
+      border: {
+        border: "solid 1px",
+        borderColor: "$dark15",
+        background: "transparent",
+        color: "$dark75",
+
+        "&:hover": {
+          background: "$dark05",
+          borderColor: "$dark05",
         }
       }
     },

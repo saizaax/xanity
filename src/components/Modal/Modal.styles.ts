@@ -7,13 +7,23 @@ export const styles = css({
   transform: "translate(-50%, -50%)",
   width: "100%",
   maxWidth: "490px",
+  maxHeight: "660px",
   background: "$white",
   borderRadius: "15px",
   padding: "45px",
   boxSizing: "border-box",
+  overflowY: "scroll",
 
   "@bp640": {
     padding: "30px",
+  },
+
+  variants: {
+    size: {
+      large: {
+        maxWidth: "660px",
+      }
+    }
   }
 })
 
