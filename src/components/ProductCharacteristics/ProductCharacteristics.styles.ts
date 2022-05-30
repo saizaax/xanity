@@ -9,7 +9,7 @@ export const styles = css({
     fontSize: "20px",
     fontWeight: 700,
     color: "$dark100",
-  }
+  },
 })
 
 export const CharacteristicsContainer = styled("div", {

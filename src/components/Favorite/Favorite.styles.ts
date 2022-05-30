@@ -13,5 +13,5 @@ export const styles = css({
 
   "&:hover": {
     opacity: 0.8,
-  }
+  },
 })

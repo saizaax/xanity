@@ -26,10 +26,10 @@ export const SideImage = styled("img", {
 
   variants: {
     type: {
-      "active": {
+      active: {
         border: "solid 2px",
         borderColor: "$primary100",
-      }
-    }
-  }
+      },
+    },
+  },
 })

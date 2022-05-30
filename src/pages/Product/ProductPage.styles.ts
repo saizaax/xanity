@@ -44,7 +44,8 @@ export const ProductId = styled("p", {
 
 export const ProductContainer = styled("div", {
   display: "grid",
-  gridTemplateColumns: "minmax(500px, 1fr) minmax(300px, 1fr) minmax(260px, 320px)",
+  gridTemplateColumns:
+    "minmax(500px, 1fr) minmax(300px, 1fr) minmax(260px, 320px)",
   gap: "30px",
 
   "@bp1440": {
@@ -56,5 +57,5 @@ export const ProductContainer = styled("div", {
     gridTemplateColumns: "minmax(300px, 1fr)",
     gridTemplateRows: "1fr auto 250px",
     columnGap: "0px",
-  }
+  },
 })

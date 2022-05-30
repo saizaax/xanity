@@ -19,7 +19,7 @@ export const styles = css({
       primary: {
         color: "$primary100",
         borderColor: "$primary100",
-      }
-    }
+      },
+    },
   },
 })

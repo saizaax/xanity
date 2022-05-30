@@ -32,7 +32,7 @@ export const styles = css({
     top: "50%",
     right: "24px",
     transform: "translateY(-50%)",
-  }
+  },
 })
 
 export const InputContainer = styled("div", {

@@ -12,7 +12,7 @@ export const styles = css({
   "@bp640": {
     flexDirection: "column",
     alignItems: "flex-start",
-  }
+  },
 })
 
 export const DescriptionContainer = styled("div", {

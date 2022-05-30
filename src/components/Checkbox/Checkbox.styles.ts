@@ -13,6 +13,6 @@ export const styles = css({
 
     "input[type=checkbox]": {
       accentColor: "#6D4BFF",
-    }
+    },
   },
 })

@@ -37,7 +37,7 @@ export const styles = css({
         "&:hover": {
           color: "$dark75",
           background: "transparent",
-        }
+        },
       },
       danger: {
         color: "$danger100",
@@ -48,7 +48,7 @@ export const styles = css({
         "&:hover": {
           borderColor: "transparent",
           background: "$danger15",
-        }
+        },
       },
       border: {
         border: "solid 1px",
@@ -59,13 +59,13 @@ export const styles = css({
         "&:hover": {
           background: "$dark05",
           borderColor: "$dark05",
-        }
-      }
+        },
+      },
     },
     size: {
       small: {
         padding: "14px 18px",
-      }
-    }
-  }
+      },
+    },
+  },
 })

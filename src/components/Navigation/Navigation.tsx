@@ -5,8 +5,6 @@ import logo from "../../assets/icons/logo.svg"
 import { NavigationContainer, styles } from "./Navigation.styles"
 import { Search } from "../Search/Search"
 import { NavigationItem } from "./NavigationItem/NavigationItem"
-// import handbagIcon from "../../assets/icons/handbag.svg"
-// import tagIcon from "../../assets/icons/tag.svg"
 import starIcon from "../../assets/icons/star.svg"
 import shoppingIcon from "../../assets/icons/shopping.svg"
 import logoutIcon from "../../assets/icons/logout.svg"
@@ -44,16 +42,6 @@ const Navigation: FC<Props> = ({ isAdmin }) => {
       </Link>
       <Search />
       <NavigationContainer>
-        {/* <NavigationItem
-          url="/"
-          title="Товары"
-          icon={<img src={handbagIcon} alt="Товары" />}
-        /> */}
-        {/* <NavigationItem
-          url="/"
-          title="Заказы"
-          icon={<img src={tagIcon} alt="Заказы" />}
-        /> */}
         {isLogged ? (
           <NavigationItem
             url="/favorite"

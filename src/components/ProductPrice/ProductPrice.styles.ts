@@ -17,7 +17,7 @@ export const styles = css({
 
   "@bp1170": {
     gridRow: "3 / 3",
-  }
+  },
 })
 
 export const OrderContainer = styled("div", {
@@ -36,6 +36,6 @@ export const OrderContainer = styled("div", {
     img: {
       position: "relative",
       bottom: "1px",
-    }
-  }
+    },
+  },
 })

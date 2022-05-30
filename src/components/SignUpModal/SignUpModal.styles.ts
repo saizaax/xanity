@@ -20,7 +20,7 @@ export const ActionsContainer = styled("div", {
   "@bp460": {
     flexDirection: "column",
     rowGap: "10px",
-  }
+  },
 })
 
 export const SignIn = styled("div", {
@@ -46,5 +46,5 @@ export const SignIn = styled("div", {
   "@bp460": {
     alignItems: "center",
     order: 2,
-  }
+  },
 })

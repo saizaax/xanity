@@ -17,7 +17,7 @@ export const MainContainer = styled("div", {
 
   "@bp640": {
     flexWrap: "wrap",
-  }
+  },
 })
 
 export const PromoContainer = styled("div", {

@@ -32,9 +32,9 @@ export const styles = css({
       secondary: {
         span: {
           order: -1,
-        }
-      }
-    }
+        },
+      },
+    },
   },
 
   defaultVariants: {

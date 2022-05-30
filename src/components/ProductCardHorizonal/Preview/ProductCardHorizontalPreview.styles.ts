@@ -15,5 +15,5 @@ export const styles = css({
     height: "100%",
     position: "relative",
     top: "2px",
-  }
+  },
 })

@@ -17,5 +17,5 @@ export const NavigationContainer = styled("div", {
   "@bp640": {
     flexWrap: "wrap",
     justifyContent: "center",
-  }
+  },
 })

@@ -22,9 +22,9 @@ export const styles = css({
     size: {
       large: {
         maxWidth: "660px",
-      }
-    }
-  }
+      },
+    },
+  },
 })
 
 export const Background = styled("div", {
@@ -49,5 +49,5 @@ export const Close = styled("button", {
 
   "&:hover": {
     opacity: 0.6,
-  }
+  },
 })

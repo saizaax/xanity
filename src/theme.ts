@@ -15,11 +15,11 @@ export const globalStyles = globalCss({
   },
   "input, button": {
     outline: "none",
-    fontFamily: "Inter, sans-serif"
+    fontFamily: "Inter, sans-serif",
   },
   a: {
     color: "#000",
-    textDecoration: "none"
+    textDecoration: "none",
   },
 })
 
@@ -45,8 +45,8 @@ export const { styled, css } = createStitches({
       white: "rgba(255, 255, 255, 1)",
       danger100: "rgba(255, 75, 64, 1)",
       danger15: "rgba(255, 75, 64, 0.15)",
-      success: "rgba(0, 201, 104, 1)"
-    }
+      success: "rgba(0, 201, 104, 1)",
+    },
   },
   media: {
     bp1920: "(max-width: 1920px)",
@@ -59,7 +59,7 @@ export const { styled, css } = createStitches({
     bp700: "(max-width: 700px)",
     bp640: "(max-width: 640px)",
     bp460: "(max-width: 460px)",
-  }
+  },
 })
 
 export const Wrapper = styled("div", {
@@ -67,8 +67,4 @@ export const Wrapper = styled("div", {
   height: "100%",
   display: "flex",
   flexDirection: "column",
-
-  // "@bp1440": {
-  //   zoom: "90%"
-  // }
 })

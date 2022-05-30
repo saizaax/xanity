@@ -16,7 +16,7 @@ export const styles = css({
     transition: "0.1s",
     transform: "translateY(-5px)",
     boxShadow: "20px 20px 40px rgba(0, 0, 0, 0.1)",
-  }
+  },
 })
 
 export const InfoContainer = styled("div", {
@@ -37,7 +37,7 @@ export const Info = styled("div", {
     fontSize: "14px",
     color: "$dark50",
     fontWeight: 500,
-  }
+  },
 })
 
 export const Price = styled("p", {

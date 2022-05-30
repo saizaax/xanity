@@ -21,7 +21,7 @@ export const ProductsContainer = styled("div", {
 
   "@bp700": {
     flexDirection: "column",
-  }
+  },
 })
 
 export const Products = styled("div", {

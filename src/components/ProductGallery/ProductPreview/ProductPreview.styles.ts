@@ -12,5 +12,5 @@ export const styles = css({
   img: {
     objectFit: "contain",
     width: "100%",
-  }
+  },
 })

@@ -21,7 +21,7 @@ export const CartContainer = styled("div", {
 
   "@bp1366": {
     flexDirection: "column",
-  }
+  },
 })
 
 export const Products = styled("div", {

@@ -21,7 +21,7 @@ export const styles = css({
     color: "$primary100",
     textTransform: "uppercase",
     letterSpacing: "0.3em",
-  }
+  },
 })
 
 export const CheckboxContainer = styled("div", {

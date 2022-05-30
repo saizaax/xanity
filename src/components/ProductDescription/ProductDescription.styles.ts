@@ -15,5 +15,5 @@ export const styles = css({
     fontSize: "16px",
     fontWeight: 500,
     color: "$dark75",
-  }
+  },
 })

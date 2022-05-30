@@ -16,8 +16,8 @@ export const styles = css({
     img: {
       position: "relative",
       top: "1px",
-    }
-  }
+    },
+  },
 })
 
 export const PriceContainer = styled("div", {
@@ -35,5 +35,5 @@ export const PriceContainer = styled("div", {
     fontWeight: 700,
     fontSize: "30px",
     color: "$dark100",
-  }
+  },
 })

@@ -9,7 +9,7 @@ export const styles = css({
   h2: {
     fontSize: "18px",
     fontWeight: 700,
-  }
+  },
 })
 
 export const Products = styled("div", {

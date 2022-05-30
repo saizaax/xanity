@@ -31,9 +31,9 @@ export const Item = styled("p", {
     color: {
       primary: {
         color: "$primary100",
-      }
-    }
-  }
+      },
+    },
+  },
 })
 
 export const Price = styled("p", {

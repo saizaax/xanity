@@ -15,7 +15,7 @@ export const styles = css({
   "&:hover": {
     transition: "0.1s",
     boxShadow: "0px 0px 40px rgba(0, 0, 0, 0.1)",
-  }
+  },
 })
 
 export const DescriptionContainer = styled("div", {

@@ -3,8 +3,8 @@ export interface ITag {
 }
 
 export const TAG_CONSTANTS: ITag = {
-  "smartphone": "Смартфоны",
-  "smartwatch": "Умные часы",
-  "headphones": "Наушники",
-  "tablets": "Планшеты",
+  smartphone: "Смартфоны",
+  smartwatch: "Умные часы",
+  headphones: "Наушники",
+  tablets: "Планшеты",
 }

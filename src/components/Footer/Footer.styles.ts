@@ -14,7 +14,7 @@ export const styles = css({
   "@bp970": {
     padding: "20px",
     flexDirection: "column",
-  }
+  },
 })
 
 export const Contact = styled("p", {

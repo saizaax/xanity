@@ -15,5 +15,5 @@ export const styles = css({
     position: "relative",
     top: "2px",
     objectFit: "contain",
-  }
+  },
 })

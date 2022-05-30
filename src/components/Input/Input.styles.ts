@@ -26,9 +26,9 @@ export const inputStyles = css({
         fontSize: "16px",
         fontWeight: 500,
         padding: "14px 18px",
-      }
-    }
-  }
+      },
+    },
+  },
 })
 
 export const Label = styled("label", {

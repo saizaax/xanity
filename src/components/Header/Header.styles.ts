@@ -10,7 +10,7 @@ export const styles = css({
 
   "@bp970": {
     padding: "0 20px",
-  }
+  },
 })
 
 export const Mail = styled("div", {

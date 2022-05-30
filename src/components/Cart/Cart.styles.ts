@@ -14,7 +14,7 @@ export const styles = css({
 
   "@bp1366": {
     maxWidth: "100%",
-  }
+  },
 })
 
 export const CartContainer = styled("div", {

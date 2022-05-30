@@ -12,5 +12,5 @@ export const styles = css({
 
   "@bp640": {
     width: "100%",
-  }
+  },
 })

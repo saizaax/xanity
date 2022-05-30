@@ -8,5 +8,5 @@ export const styles = css({
   "@bp1170": {
     gridRow: "2 / 3",
     gridColumn: "1 / 3",
-  }
+  },
 })
