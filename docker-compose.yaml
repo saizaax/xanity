@@ -12,7 +12,7 @@ services:
       - ./mongodbdata:/data/db
 
   backend:
-    build: .
+    build: ./backend
     container_name: backend
     restart: always
     environment:
@@ -28,3 +28,11 @@ services:
       - 5050:5050
     depends_on:
       - mongodb
+
+  frontend:
+    build: ./frontend
+    container_name: "frontend"
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
