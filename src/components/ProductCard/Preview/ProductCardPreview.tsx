@@ -6,14 +6,15 @@ import { styles } from './ProductCardPreview.styles'
 type Props = {
   imageUrl: string,
   tag: string,
+  id: string,
 }
 
-const ProductCardPreview: FC<Props> = ({ imageUrl, tag }) => {
+const ProductCardPreview: FC<Props> = ({ imageUrl, tag, id }) => {
   return (
     <div className={styles()}>
       <img src={imageUrl} alt="" />
       <ProductCardTag>{tag}</ProductCardTag>
-      <Favorite />
+      <Favorite id={id} />
     </div>
   )
 }

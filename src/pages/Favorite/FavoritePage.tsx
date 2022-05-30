@@ -6,9 +6,15 @@ import { Navigation } from "../../components/Navigation/Navigation"
 import { ProductCardHorizontal } from "../../components/ProductCardHorizonal/ProductCardHorizontal"
 import { SectionTitle } from "../../components/SectionTitle/SectionTitle"
 import { Separator } from "../../components/Separator/Separator"
+import { ProductsContext } from "../../context/ProductsContext"
+import { IProduct } from "../../interfaces/product.interface"
+import { TAG_CONSTANTS } from "../../constants/TagConstants"
 import { MainContainer, Products, styles } from "./FavoritePage.styles"
 
 const FavoritePage: FC = () => {
+  const { favoriteContext } = React.useContext(ProductsContext)
+  const [favorite] = favoriteContext
+
   return (
     <>
       <div className={styles()}>
@@ -17,34 +23,30 @@ const FavoritePage: FC = () => {
           <Navigation isAdmin={false} />
           <Separator variant="secondary" />
           <MainContainer>
-            <SectionTitle title="Избранное" results={"Товаров в избранном — 3"} />
+            <SectionTitle
+              title="Избранное"
+              results={`Товаров в избранном — ${favorite.length}`}
+            />
             <Products>
-              <ProductCardHorizontal
-                title="Apple Watch Series 7 — 42mm"
-                description="Корпус из алюминия цвета «сияющая звезда» и Спортивный ремешок"
-                price={37900}
-                id={1}
-                tag="Умные часы"
-                imageUrl="https://avatars.mds.yandex.net/get-mpic/18058/img_id947009900.jpeg/orig"
-              />
-              <Separator />
-              <ProductCardHorizontal
-                title="Apple Watch Series 7 — 42mm"
-                description="Корпус из алюминия цвета «сияющая звезда» и Спортивный ремешок"
-                price={37900}
-                id={1}
-                tag="Умные часы"
-                imageUrl="https://avatars.mds.yandex.net/get-mpic/18058/img_id947009900.jpeg/orig"
-              />
-              <Separator />
-              <ProductCardHorizontal
-                title="Apple Watch Series 7 — 42mm"
-                description="Корпус из алюминия цвета «сияющая звезда» и Спортивный ремешок"
-                price={37900}
-                id={1}
-                tag="Умные часы"
-                imageUrl="https://avatars.mds.yandex.net/get-mpic/18058/img_id947009900.jpeg/orig"
-              />
+              {favorite.map(
+                (product: IProduct, index: number, p: IProduct[]) => (
+                  <React.Fragment key={product._id}>
+                    <ProductCardHorizontal
+                      title={product.name}
+                      description={product.description}
+                      price={product.price}
+                      id={product._id}
+                      tag={TAG_CONSTANTS[product.category]}
+                      imageUrl={product.images[0]}
+                      type="favorite"
+                    />
+                    {index + 1 === p.length ? null : <Separator />}
+                  </React.Fragment>
+                )
+              )}
+              {favorite.length === 0 ? (
+                <p>Ваш список избранных товаров пуст</p>
+              ) : null}
             </Products>
           </MainContainer>
         </Container>

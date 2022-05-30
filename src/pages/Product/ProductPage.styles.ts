@@ -17,6 +17,7 @@ export const MainContainer = styled("div", {
 export const TitleContainer = styled("div", {
   display: "flex",
   flexDirection: "column",
+  marginBottom: "20px",
 })
 
 export const Title = styled("h2", {

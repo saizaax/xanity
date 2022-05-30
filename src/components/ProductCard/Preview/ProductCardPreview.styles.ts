@@ -7,11 +7,13 @@ export const styles = css({
   overflow: "hidden",
   position: "relative",
   display: "flex",
+  minHeight: "244px",
 
   img: {
     width: "100%",
     height: "100%",
     position: "relative",
     top: "2px",
+    objectFit: "contain",
   }
 })

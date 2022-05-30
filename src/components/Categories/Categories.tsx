@@ -20,61 +20,61 @@ const Categories: FC = () => {
       <CategoriesItem
         title="Бытовая техника"
         icon={<img src={weightIcon} alt="" />}
-        url="/"
+        url="/search"
       />
       <Separator />
       <CategoriesItem
         title="Смартфоны и гаджеты"
         icon={<img src={mobileIcon} alt="" />}
-        url="/"
+        url="/search"
       />
       <Separator />
       <CategoriesItem
         title="TV и мультимедиа"
         icon={<img src={monitorIcon} alt="" />}
-        url="/"
+        url="/search"
       />
       <Separator />
       <CategoriesItem
         title="Компьютеры"
         icon={<img src={cpuIcon} alt="" />}
-        url="/"
+        url="/search"
       />
       <Separator />
       <CategoriesItem
         title="Офисная техника"
         icon={<img src={printerIcon} alt="" />}
-        url="/"
+        url="/search"
       />
       <Separator />
       <CategoriesItem
         title="Аудиотехника"
         icon={<img src={headphonesIcon} alt="" />}
-        url="/"
+        url="/search"
       />
       <Separator />
       <CategoriesItem
         title="Игры и развлечения"
         icon={<img src={gameIcon} alt="" />}
-        url="/"
+        url="/search"
       />
       <Separator />
       <CategoriesItem
         title="Для дома"
         icon={<img src={lampIcon} alt="" />}
-        url="/"
+        url="/search"
       />
       <Separator />
       <CategoriesItem
         title="Аксессуары"
         icon={<img src={mouseIcon} alt="" />}
-        url="/"
+        url="/search"
       />
       <Separator />
       <CategoriesItem
         title="Умный дом"
         icon={<img src={mirroringIcon} alt="" />}
-        url="/"
+        url="/search"
       />
     </nav>
   )

@@ -12,7 +12,7 @@ const Price: FC<Props> = ({ price }) => {
     <div className={styles()}>
       <PriceContainer>
         <span>Стоимость</span>
-        <h3>{price.toLocaleString()} ₽</h3>
+        <h3>{price ? price.toLocaleString() : null} ₽</h3>
       </PriceContainer>
       <p><img src={checkIcon} alt="" /> В наличии</p>
     </div>

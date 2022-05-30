@@ -1,4 +1,5 @@
 import React, { FC } from "react"
+import { useLocation } from "react-router-dom"
 import { Container } from "../../components/Container/Container"
 import { Filters } from "../../components/Filters/Filters"
 import { Footer } from "../../components/Footer/Footer"
@@ -7,6 +8,9 @@ import { Navigation } from "../../components/Navigation/Navigation"
 import { ProductCard } from "../../components/ProductCard/ProductCard"
 import { SectionTitle } from "../../components/SectionTitle/SectionTitle"
 import { Separator } from "../../components/Separator/Separator"
+import { TAG_CONSTANTS } from "../../constants/TagConstants"
+import { ProductsContext } from "../../context/ProductsContext"
+import { IProduct } from "../../interfaces/product.interface"
 import {
   MainContainer,
   Products,
@@ -15,6 +19,26 @@ import {
 } from "./SearchPage.styles"
 
 const SearchPage: FC = () => {
+  const location = useLocation()
+
+  const { productsContext } = React.useContext(ProductsContext)
+  const [products] = productsContext
+
+  const [filtered, setFiltered] = React.useState<Array<IProduct>>([])
+
+  React.useEffect(() => {
+    const query = decodeURI(location.search.split("=")[1])
+
+    if (query !== undefined && query !== "") {
+      const filteredProducts = products.filter(
+        (product: IProduct) =>
+          product.name.toLowerCase().includes(query.toLowerCase()) ||
+          product.description.toLowerCase().includes(query.toLowerCase())
+      )
+      setFiltered(filteredProducts)
+    }
+  }, [location, products])
+
   return (
     <>
       <div className={styles()}>
@@ -23,58 +47,36 @@ const SearchPage: FC = () => {
           <Navigation isAdmin={false} />
           <Separator variant="secondary" />
           <MainContainer>
-            <SectionTitle title="Поиск товаров" results={"Найдено результатов — 10"} />
+            <SectionTitle
+              title="Поиск товаров"
+              results={"Найдено результатов — 10"}
+            />
             <ProductsContainer>
               <Filters />
               <Products>
-                <ProductCard
-                  title="Apple Watch Series 7 — 42mm"
-                  description="Корпус из алюминия цвета «сияющая звезда» и Спортивный ремешок"
-                  price={37900}
-                  id={1}
-                  tag="Умные часы"
-                  imageUrl="https://avatars.mds.yandex.net/get-mpic/18058/img_id947009900.jpeg/orig"
-                />
-                <ProductCard
-                  title="Apple Watch Series 7 — 42mm"
-                  description="Корпус из алюминия цвета «сияющая звезда» и Спортивный ремешок"
-                  price={37900}
-                  id={1}
-                  tag="Умные часы"
-                  imageUrl="https://avatars.mds.yandex.net/get-mpic/18058/img_id947009900.jpeg/orig"
-                />
-                <ProductCard
-                  title="Apple Watch Series 7 — 42mm"
-                  description="Корпус из алюминия цвета «сияющая звезда» и Спортивный ремешок"
-                  price={37900}
-                  id={1}
-                  tag="Умные часы"
-                  imageUrl="https://avatars.mds.yandex.net/get-mpic/18058/img_id947009900.jpeg/orig"
-                />
-                <ProductCard
-                  title="Apple Watch Series 7 — 42mm"
-                  description="Корпус из алюминия цвета «сияющая звезда» и Спортивный ремешок"
-                  price={37900}
-                  id={1}
-                  tag="Умные часы"
-                  imageUrl="https://avatars.mds.yandex.net/get-mpic/18058/img_id947009900.jpeg/orig"
-                />
-                <ProductCard
-                  title="Apple Watch Series 7 — 42mm"
-                  description="Корпус из алюминия цвета «сияющая звезда» и Спортивный ремешок"
-                  price={37900}
-                  id={1}
-                  tag="Умные часы"
-                  imageUrl="https://avatars.mds.yandex.net/get-mpic/18058/img_id947009900.jpeg/orig"
-                />
-                <ProductCard
-                  title="Apple Watch Series 7 — 42mm"
-                  description="Корпус из алюминия цвета «сияющая звезда» и Спортивный ремешок"
-                  price={37900}
-                  id={1}
-                  tag="Умные часы"
-                  imageUrl="https://avatars.mds.yandex.net/get-mpic/18058/img_id947009900.jpeg/orig"
-                />
+                {filtered.length > 0
+                  ? filtered.map((product: IProduct) => (
+                      <ProductCard
+                        key={product._id}
+                        title={product.name}
+                        description={product.description}
+                        price={product.price}
+                        id={product._id}
+                        tag={TAG_CONSTANTS[product.category]}
+                        imageUrl={product.images[0]}
+                      />
+                    ))
+                  : products.map((product: IProduct) => (
+                      <ProductCard
+                        key={product._id}
+                        title={product.name}
+                        description={product.description}
+                        price={product.price}
+                        id={product._id}
+                        tag={TAG_CONSTANTS[product.category]}
+                        imageUrl={product.images[0]}
+                      />
+                    ))}
               </Products>
             </ProductsContainer>
           </MainContainer>

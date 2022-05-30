@@ -25,7 +25,20 @@ export const ProductsContainer = styled("div", {
 })
 
 export const Products = styled("div", {
+  width: "100%",
   display: "grid",
-  gap: "25px",
-  gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+  gap: "20px",
+  gridTemplateColumns: "repeat(4, 1fr)",
+
+  "@media screen and (max-width: 1720px)": {
+    gridTemplateColumns: "repeat(3, 1fr);",
+  },
+
+  "@media screen and (max-width: 1320px)": {
+    gridTemplateColumns: "repeat(2, 1fr);",
+  },
+
+  "@media screen and (max-width: 1115px)": {
+    gridTemplateColumns: "1fr",
+  },
 })

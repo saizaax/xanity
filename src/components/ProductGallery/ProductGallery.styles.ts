@@ -17,6 +17,7 @@ export const SideImageContainer = styled("div", {
 })
 
 export const SideImage = styled("img", {
+  cursor: "pointer",
   width: "80px",
   height: "80px",
   borderRadius: "5px",

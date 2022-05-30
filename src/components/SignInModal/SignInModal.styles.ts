@@ -33,10 +33,14 @@ export const SignUp = styled("div", {
     fontWeight: 500,
   },
 
-  a: {
+  button: {
     color: "$primary100",
     fontWeight: 500,
     fontSize: "14px",
+    background: "transparent",
+    border: "none",
+    width: "fit-content",
+    cursor: "pointer",
   },
 
   "@bp460": {

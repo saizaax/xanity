@@ -1,9 +1,9 @@
 import React, { FC } from "react"
-import { Characteristic } from "../../../interfaces/characteristic.interface"
+import { ICharacteristic } from "../../../interfaces/product.interface"
 import { Key, styles, Value } from "./CharacteristicsItem.styles"
 
 type Props = {
-  characteristic: Characteristic
+  characteristic: ICharacteristic
 }
 
 const CharacteristicsItem: FC<Props> = ({ characteristic }) => {

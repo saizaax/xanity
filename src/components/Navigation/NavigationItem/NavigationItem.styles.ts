@@ -7,6 +7,9 @@ export const styles = css({
   display: "flex",
   columnGap: "10px",
   alignItems: "center",
+  background: "transparent",
+  border: "none",
+  width: "fit-content",
 
   variants: {
     color: {
@@ -25,6 +28,13 @@ export const styles = css({
         },
       },
     },
+    type: {
+      secondary: {
+        span: {
+          order: -1,
+        }
+      }
+    }
   },
 
   defaultVariants: {

@@ -6,17 +6,20 @@ type Props = {
   placeholder?: string
   label?: string
   size?: "default"
+  type?: "text" | "password"
+  disabled?: boolean
 }
 
-const Input: FC<Props> = ({ onChange, placeholder, label, size }) => {
+const Input: FC<Props> = ({ onChange, placeholder, label, size, type, disabled }) => {
   return (
     <div className={styles()}>
       {label ? <Label>{label}</Label> : null}
       <input
         className={inputStyles({ size: size })}
         onChange={onChange}
-        type="text"
+        type={type || "text"}
         placeholder={placeholder}
+        disabled={disabled}
       />
     </div>
   )

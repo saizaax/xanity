@@ -1,4 +1,7 @@
 import React, { FC } from "react"
+import { AuthContext } from "../../context/AuthContext"
+import { SettingsContext } from "../../context/SettingsContext"
+import { IProduct } from "../../interfaces/product.interface"
 import { Button } from "../Button/Button"
 import { CartItem } from "../CartItem/CartItem"
 import {
@@ -9,20 +12,52 @@ import {
   TotalContainer,
 } from "./Cart.styles"
 
-const Cart: FC = () => {
+type Props = {
+  cart: IProduct[]
+}
+
+const Cart: FC<Props> = ({ cart }) => {
+  const { isLoggedContext } = React.useContext(AuthContext)
+  const { settingsContext } = React.useContext(SettingsContext)
+
+  const [settings, setSettings] = settingsContext
+  const [isLogged] = isLoggedContext
+
   return (
-    <div className={styles()}>
-      <CartContainer>
-        <Title>Итого</Title>
-        <CartItem title="Apple Watch Series 7 — 42mm" price={37990} />
-        <CartItem title="Apple Watch Series 7 — 42mm" price={37990} />
-        <CartItem title="Apple Watch Series 7 — 42mm" price={37990} />
-      </CartContainer>
-      <TotalContainer>
-        <Total>113 700 ₽</Total>
-        <Button size="small">Оформить</Button>
-      </TotalContainer>
-    </div>
+    <>
+      {cart.length ? (
+        <div className={styles()}>
+          <CartContainer>
+            <Title>Итого</Title>
+            {cart.map((product: IProduct) => (
+              <CartItem
+                title={product.name}
+                price={product.price}
+                key={product._id}
+              />
+            ))}
+          </CartContainer>
+          <TotalContainer>
+            <Total>
+              {cart
+                .map((product: IProduct) => product.price)
+                .reduce((prev: number, curr: number) => prev + curr, 0)
+                .toLocaleString() + " ₽"}
+            </Total>
+            <Button
+              size="small"
+              onClick={
+                isLogged
+                  ? () => setSettings({ ...settings, orderModal: true })
+                  : () => setSettings({ ...settings, signInModal: true })
+              }
+            >
+              Оформить
+            </Button>
+          </TotalContainer>
+        </div>
+      ) : null}
+    </>
   )
 }
 

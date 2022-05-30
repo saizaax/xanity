@@ -33,4 +33,5 @@ export const Products = styled("div", {
   border: "solid 1px $dark15",
   borderRadius: "15px",
   width: "100%",
+  height: "fit-content",
 })

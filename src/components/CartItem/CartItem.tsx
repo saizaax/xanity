@@ -12,7 +12,7 @@ const CartItem: FC<Props> = ({ title, price, color }) => {
     <div className={styles()}>
       <Item color={color}>{title}</Item>
       <hr />
-      <Price>{price} ₽</Price>
+      <Price>{price.toLocaleString()} ₽</Price>
     </div>
   )
 }

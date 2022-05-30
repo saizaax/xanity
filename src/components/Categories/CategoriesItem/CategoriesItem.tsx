@@ -1,4 +1,5 @@
 import React, { FC } from 'react'
+import { Link } from 'react-router-dom'
 import { styles } from "./CategoriesItem.styles"
 
 type Props = {
@@ -9,7 +10,7 @@ type Props = {
 
 const CategoriesItem: FC<Props> = ({ title, icon, url }) => {
   return (
-    <a className={styles()} href={url}>{icon}{title}</a>
+    <Link className={styles()} to={url}>{icon}{title}</Link>
   )
 }
 

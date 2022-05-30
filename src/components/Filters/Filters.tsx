@@ -17,13 +17,13 @@ const Filters: FC = () => {
       <CheckboxContainer>
         <p>Стоимость</p>
         <InputContainer>
-          <Input placeholder="от 999" />
-          <Input placeholder="до 49 990" />
+          <Input placeholder="от 999" disabled={true} />
+          <Input placeholder="до 49 990" disabled={true} />
         </InputContainer>
-        <Checkbox label="от 11 990 — 19 990 ₽" />
-        <Checkbox label="от 19 990 — 29 990 ₽" />
-        <Checkbox label="от 29 990 — 39 990 ₽" />
-        <Checkbox label="от 39 990 — 49 990 ₽" />
+        <Checkbox label="от 11 990 — 19 990 ₽" disabled={true} />
+        <Checkbox label="от 19 990 — 29 990 ₽" disabled={true} />
+        <Checkbox label="от 29 990 — 39 990 ₽" disabled={true} />
+        <Checkbox label="от 39 990 — 49 990 ₽" disabled={true} />
       </CheckboxContainer>
       <ButtonsContainer>
         <Button size="small">Применить</Button>

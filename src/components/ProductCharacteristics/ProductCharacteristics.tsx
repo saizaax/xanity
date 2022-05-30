@@ -1,5 +1,5 @@
-import React from "react"
-import { Characteristic } from "../../interfaces/characteristic.interface"
+import React, { FC } from "react"
+import { ICharacteristic } from "../../interfaces/product.interface"
 import { CharacteristicsItem } from "./CharacteristicsItem/CharacteristicsItem"
 import {
   CharacteristicsContainer,
@@ -7,17 +7,24 @@ import {
 } from "./ProductCharacteristics.styles"
 
 type Props = {
-  characteristics: Characteristic[]
+  characteristics: ICharacteristic[]
 }
 
-const ProductCharacteristics = (props: Props) => {
+const ProductCharacteristics: FC<Props> = ({ characteristics }) => {
   return (
     <div className={styles()}>
       <h3>Характеристики</h3>
       <CharacteristicsContainer>
-        {props.characteristics.map((characteristic, index) => (
-          <CharacteristicsItem characteristic={characteristic} key={index} />
-        ))}
+        {characteristics
+          ? characteristics.map(
+              (characteristic: ICharacteristic, index: number) => (
+                <CharacteristicsItem
+                  characteristic={characteristic}
+                  key={index}
+                />
+              )
+            )
+          : null}
       </CharacteristicsContainer>
     </div>
   )
