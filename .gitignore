@@ -36,6 +36,8 @@ lerna-debug.log*
 
 # Other
 mongodbdata
+certbot
+dhparam
 notes.md
 .env
 
