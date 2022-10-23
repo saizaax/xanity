@@ -1,4 +1,4 @@
-name: Build
+name: Build and deploy
 
 on:
   push:
@@ -7,9 +7,11 @@ on:
 
 env:
   REGISTRY: ghcr.io
+  STACK_NAME: xanity
   FRONT_IMAGE_NAME: ghcr.io/saizaax/xanity-front
   BACK_IMAGE_NAME: ghcr.io/saizaax/xanity-back
   GH_PAT: ${{ secrets.GH_PAT }}
+  GH_USER: ${{ github.actor }}
 
 jobs:
   build-and-push:
@@ -36,8 +38,29 @@ jobs:
           docker tag $FRONT_IMAGE_NAME $FRONT_IMAGE_NAME:$GITHUB_RUN_NUMBER
           docker push $FRONT_IMAGE_NAME:latest
           docker push $FRONT_IMAGE_NAME:$GITHUB_RUN_NUMBER
-          
+
           docker tag $BACK_IMAGE_NAME $BACK_IMAGE_NAME:latest
           docker tag $BACK_IMAGE_NAME $BACK_IMAGE_NAME:$GITHUB_RUN_NUMBER
           docker push $BACK_IMAGE_NAME:latest
           docker push $BACK_IMAGE_NAME:$GITHUB_RUN_NUMBER
+    
+  deploy-services:
+    needs: [build-and-push]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy Docker stack
+        uses: appleboy/ssh-action@master
+        env:
+          REGISTRY: ${{ env.REGISTRY }}
+          GH_PAT: ${{ env.GH_PAT }}
+          STACK_NAME: ${{ env.STACK_NAME }}
+          GH_USER: ${{ env.GH_USER }}
+        with:
+          host: ${{ secrets.VM_HOST }}
+          username: ${{ secrets.VM_USER }}
+          key: ${{ secrets.VM_SSH_KEY }}
+          envs: REGISTRY, GH_PAT, STACK_NAME, GH_USER
+          script: |
+            cd ~/projects/xanity
+            echo "$GH_PAT" | docker login $REGISTRY -u $GH_USER --password-stdin
+            docker stack deploy -c docker.stack.prod.yml $STACK_NAME --with-registry-auth

@@ -18,7 +18,7 @@ services:
       - default
 
   backend:
-    image: ghcr.io/saizaax/xanity-backend:latest
+    image: ghcr.io/saizaax/xanity-back:latest
     environment:
       - PORT=5050
       - MONGODB_USERNAME=root
@@ -34,7 +34,7 @@ services:
       - default
 
   frontend:
-    image: ghcr.io/saizaax/xanity-frontend:latest
+    image: ghcr.io/saizaax/xanity-front:latest
     depends_on:
       - backend
     deploy:
