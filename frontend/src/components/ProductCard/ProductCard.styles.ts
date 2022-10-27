@@ -37,6 +37,8 @@ export const Title = styled("h3", {
   fontWeight: 600,
   color: "$dark100",
   maxHeight: "40px",
+  overflow: "hidden",
+  textOverflow: "ellipsis",
 })
 
 export const Description = styled("p", {
