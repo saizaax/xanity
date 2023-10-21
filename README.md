@@ -1,6 +1,6 @@
 # Xanity — Hardware Store 💻
 
-[![](https://img.shields.io/website?down_message=offline&label=xanity.saizaax.xyz&up_message=online&url=http%3A%2F%2Fxanity.saizaax.xyz%2F)](http://xanity.saizaax.xyz/)
+[![](https://img.shields.io/website?down_message=offline&label=xanity.saizaax.dev&up_message=online&url=http%3A%2F%2Fxanity.saizaax.dev%2F)](http://xanity.saizaax.dev/)
 [![ReactJS](https://img.shields.io/badge/React.js-282C34?logo=react&logoColor=white)](https://reactjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Nest.js](https://img.shields.io/badge/Nest.js-E0234E?logo=nestjs&logoColor=white)](https://nestjs.com/)
@@ -11,7 +11,7 @@
 ![](preview.png)
 
 <h3 align="center">
-✨ Preview • <a href="https://xanity.saizaax.xyz/">xanity.saizaax.xyz</a>
+✨ Preview • <a href="https://xanity.saizaax.dev/">xanity.saizaax.dev</a>
 </h3>
 
 ## Technologies
